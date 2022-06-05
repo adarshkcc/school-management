@@ -7,6 +7,7 @@ import LandingPage from "./component/LandingPage";
 import 'antd/dist/antd.css'
 
 import RoutesComponent from "./Routes/index.js";
+import ThemeConsumer from "./common/GlobleStyle/ThemeConsumer";
 const App = () => {
   
 
@@ -14,11 +15,11 @@ const App = () => {
   const { t } = useTranslation("mains");
   console.log("t", t);
   return (
-    <div>
+    <ThemeConsumer>
       <LoadingBar style={{ backgroundColor: "#e5d4c9" }} />
 
      <RoutesComponent/>
-    </div>
+    </ThemeConsumer>
   );
 };
 

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { Select } from "antd";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -25,9 +25,9 @@ const Header = ({ myLanguage }) => {
   return (
     <StyledHeader>
       <div>Welcome to React Localization</div>
-      <div className="change_language" >
-        <div className="globe_icon" >
-        <FontAwesomeIcon icon={faGlobe} />
+      <div className="change_language">
+        <div className="globe_icon">
+          <FontAwesomeIcon icon={faGlobe} />
         </div>
         <div>
           <Select
@@ -55,19 +55,20 @@ const StyledHeader = styled.div`
   position: relative;
 
   border-radius: 24px;
-  background: #ded1d1;
+  background: ${({ theme }) => theme.color.main};
+  color: ${({ theme }) => theme.color.second};
 
-  .ant-select:not(.ant-select-customize-input) .ant-select-selector{
-      background:none;
-      border:none;
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    background: none;
+    border: none;
   }
-  
-  .change_language{
-      position:absolute;
-      right:14px;
-      display:flex;
+
+  .change_language {
+    position: absolute;
+    right: 14px;
+    display: flex;
   }
-  .globe_icon{
-      font-size:20px;
+  .globe_icon {
+    font-size: 20px;
   }
 `;
