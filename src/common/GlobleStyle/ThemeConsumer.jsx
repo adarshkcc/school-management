@@ -11,6 +11,7 @@ let initialState = {
     main: "#4169E1",
     second: "#F4EEEA",
     third: "#f1ece6",
+    fourth: "#c1c8db",
     // theme colors end
     borderColor: "#cbcbcb",
     white: "#fff",
@@ -56,8 +57,11 @@ let initialState = {
 const ThemeConsumer = ({ children, colorIndex }) => {
   const [theme, setTheme] = useState(initialState);
   useEffect(() => {
-    let { main, second, third } = colorsConstants[colorIndex];
-    setTheme({ ...theme, color: { ...theme.color, main, second, third } });
+    let { main, second, third, fourth } = colorsConstants[colorIndex];
+    setTheme({
+      ...theme,
+      color: { ...theme.color, main, second, third, fourth },
+    });
   }, [colorIndex]);
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
