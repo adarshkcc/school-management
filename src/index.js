@@ -9,7 +9,6 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./i18n";
 
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -18,10 +17,9 @@ root.render(
       <PersistGate loading={null} persistor={persister}>
         <Suspense fallback="loading">
           <Router>
-          <App />
+            <App />
           </Router>
         </Suspense>
-        
       </PersistGate>
     </Provider>
   </React.StrictMode>
