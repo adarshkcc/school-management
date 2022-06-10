@@ -9,6 +9,7 @@ const Layout = (props) => {
   const history = useNavigate();
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
+
   return (
     <StyledMainContainer>
       <Header />

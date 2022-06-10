@@ -1,0 +1,23 @@
+<svg
+  width="100%"
+  height="100%"
+  id="svg"
+  viewBox="0 0 1440 600"
+  xmlns="http://www.w3.org/2000/svg"
+  class="transition duration-300 ease-in-out delay-150"
+>
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="5%" stop-color="#002bdcff"></stop>
+      <stop offset="95%" stop-color="#32ded4ff"></stop>
+    </linearGradient>
+  </defs>
+  <path
+    d="M 0,600 C 0,600 0,300 0,300 C 111.17703349282297,276.066985645933 222.35406698564594,252.133971291866 323,238 C 423.64593301435406,223.866028708134 513.7607655502393,219.5311004784689 597,235 C 680.2392344497607,250.4688995215311 756.6028708133972,285.74162679425837 858,316 C 959.3971291866028,346.25837320574163 1085.8277511961721,371.5023923444976 1187,368 C 1288.1722488038279,364.4976076555024 1364.0861244019138,332.2488038277512 1440,300 C 1440,300 1440,600 1440,600 Z"
+    stroke="none"
+    stroke-width="0"
+    fill="url(#gradient)"
+    class="transition-all duration-300 ease-in-out delay-150 path-0"
+    transform="rotate(-180 720 300)"
+  ></path>
+</svg>
