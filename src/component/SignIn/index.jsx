@@ -4,7 +4,7 @@ import {
   faEyeSlash,
   faUnlockKeyhole,
 } from "@fortawesome/free-solid-svg-icons";
-import { Input, Modal } from "antd";
+import { Input, Modal, notification } from "antd";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,7 @@ import { USER_AUTHENTICATION } from "../../action/api/action-types";
 import signInBackground from "../../assets/images/signInBackground.svg";
 import { FontAwesomeIcons } from "../../common/FontAwesomeIcons";
 import Loader from "../../common/Loader/loader";
+import { styledNotification } from "../../common/Styles/styledNotification";
 import SignUp from "./SignUp";
 import "./styledSignIn";
 import {
@@ -41,6 +42,13 @@ const SignIn = () => {
       type: USER_AUTHENTICATION,
       payload: true,
     });
+    notification["success"]({
+      message: "Login Successful",
+      description: "",
+      duration: 3,
+      style: styledNotification,
+    });
+
     navigate("/profile");
   };
   return (

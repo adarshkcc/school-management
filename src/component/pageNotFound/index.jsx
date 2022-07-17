@@ -89,16 +89,6 @@ const StyledMainContainer = styled.div`
 
   @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700");
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    overflow: hidden;
-    background-color: #f4f6ff;
-  }
   background: cover;
   background-repeat: no-repeat;
   width: 100vw;

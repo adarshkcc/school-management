@@ -2,14 +2,22 @@ import { Layout as Layouts, Menu } from "antd";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { LOGOUT } from "../../action/api/action-types";
 import Header from "./header";
+import { useDispatch } from "react-redux";
 import { MenuItems } from "./menu";
 const { Sider, Content } = Layouts;
 const Layout = (props) => {
   const history = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   const [collapsed, setCollapsed] = useState(false);
-
+  const logout = () => {
+    console.log("first");
+    dispatch({
+      type: LOGOUT,
+    });
+  };
   return (
     <StyledMainContainer>
       <Header />
@@ -27,7 +35,7 @@ const Layout = (props) => {
             mode="inline"
             defaultSelectedKeys={[location.pathname]}
             items={MenuItems}
-            onClick={(e) => history(e.key)}
+            onClick={(e) => (e.key == "logout" ? logout() : history(e.key))}
           />
         </Sider>
         <Content className="layout_contents">{props.children}</Content>
@@ -38,12 +46,12 @@ const Layout = (props) => {
 export default Layout;
 const StyledMainContainer = styled.div`
   .site-layout-background {
-    background: ${({ theme }) => theme.color.second};
+    background: #f7f6fb;
     // border-right: 2px solid;
     // border-color: ${({ theme }) => theme.color.main};
   }
   .ant-menu {
-    background: ${({ theme }) => theme.color.second};
+    background: #f7f6fb;
   }
   .ant-menu-item {
     font-size: 18px;
@@ -75,7 +83,9 @@ const StyledMainContainer = styled.div`
     background: ${({ theme }) => theme.color.main};
   }
   .layout_contents {
+    overflow: scroll;
     padding: 15px;
     background: ${({ theme }) => theme.color.lightWhite};
+    height: calc(100vh - 44px);
   }
 `;

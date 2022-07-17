@@ -1,4 +1,4 @@
-import { USER_AUTHENTICATION } from "../../action/api/action-types";
+import { LOGOUT, USER_AUTHENTICATION } from "../../action/api/action-types";
 
 const initialState = {
   isAuthenticated: false,
@@ -10,6 +10,10 @@ const AuthReducers = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: action.payload,
+      };
+    case LOGOUT:
+      return {
+        state: undefined,
       };
     default:
       return state;

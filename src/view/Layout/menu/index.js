@@ -1,4 +1,4 @@
-import { faSpider, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faSignOut, faSpider, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcons } from "../../../common/FontAwesomeIcons";
 
 export const MenuItems = [
@@ -8,15 +8,15 @@ export const MenuItems = [
     label: "Profile",
   },
   {
-    key: "/2",
+    key: "/userDetailList",
     icon: FontAwesomeIcons(faSpider),
 
-    label: "nav 2",
+    label: "Student List",
   },
   {
-    key: "/3",
-    icon: FontAwesomeIcons(faSpider),
+    key: "logout",
+    icon: FontAwesomeIcons(faSignOut),
 
-    label: "nav 3",
+    label: "Logout",
   },
 ];
