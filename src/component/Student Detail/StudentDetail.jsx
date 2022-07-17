@@ -1,6 +1,7 @@
 import { Badge, Button, Tabs } from "antd";
 import { useState } from "react";
 import styled from "styled-components";
+import AcedemicReport from "./Acedemic Report/AcedemicReport";
 import Details from "./Details";
 const { TabPane } = Tabs;
 const StudentDetail = () => {
@@ -69,7 +70,7 @@ const StudentDetail = () => {
             tab={<Button className="tab_btn">Acedemic Report</Button>}
             key="2"
           >
-            {tabNo == "2" && <Details />}
+            {tabNo == "2" && <AcedemicReport />}
           </TabPane>
           <TabPane
             tab={<Button className="tab_btn">Fee Details</Button>}
@@ -128,9 +129,6 @@ const StyledCardContainer = styled.div`
 `;
 
 const StyledTab = styled(Tabs)`
-  .ant-tabs-tab-btn {
-    font-size: 18px;
-  }
   .tab_btn {
     border-color: ${({ theme }) => theme.color.main};
     font-weight: 500;
