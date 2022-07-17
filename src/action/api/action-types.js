@@ -1,3 +1,4 @@
 export const USER_AUTHENTICATION = "USER_AUTHENTICATION";
 export const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";
 export const CHANGE_THEME = "CHANGE_THEME";
+export const LOGOUT = "LOGOUT";
