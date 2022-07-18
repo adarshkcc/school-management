@@ -133,6 +133,7 @@ const StyledTab = styled(Tabs)`
     border-color: ${({ theme }) => theme.color.main};
     font-weight: 500;
     color: rgba(0, 0, 0, 0.85);
+    background: ${({ theme }) => theme.color.third};
   }
 
   .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
