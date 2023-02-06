@@ -1,4 +1,4 @@
-import { Avatar, Badge, Button, Space, Table, Tag, Tooltip } from "antd";
+import { Badge, Button, Space, Table, Tooltip } from "antd";
 import { UserAvatar } from "../../../common/UserAvatar";
 import FilterStudent from "./FilterStudent";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
