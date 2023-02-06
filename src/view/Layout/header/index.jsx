@@ -1,43 +1,84 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-import { Select } from "antd";
-import React, { useEffect, useState } from "react";
+import { DownOutlined, UserOutlined } from "@ant-design/icons";
+import { Avatar, Badge, Dropdown, Select } from "antd";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { connect, useDispatch } from "react-redux";
 import styled from "styled-components";
-import { CHANGE_LANGUAGE } from "../../../action/api/action-types";
+import { MdNotifications } from "react-icons/md";
+import { logout } from "../../../reducer/authReducer";
+import { AiOutlineSetting, AiOutlineLogout } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 const Option = { Select };
-const Header = ({ myLanguage }) => {
+const Header = ({ user }) => {
+  console.log(user);
   const [language, setLanguage] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { i18n } = useTranslation();
 
-  useEffect(() => {
-    setLanguage(myLanguage);
-    i18n.changeLanguage(myLanguage);
-  }, [myLanguage]);
-  const changeMyLanguage = (e) => {
-    dispatch({
-      type: CHANGE_LANGUAGE,
-      payload: e,
-    });
-  };
+  // useEffect(() => {
+  //   setLanguage(myLanguage);
+  //   i18n.changeLanguage(myLanguage);
+  // }, [myLanguage]);
+  // const changeMyLanguage = (e) => {
+  //   dispatch({
+  //     type: CHANGE_LANGUAGE,
+  //     payload: e,
+  //   });
+  // };
+
+  const items = [
+    {
+      key: "1",
+      label: (
+        <StyledMenu onClick={() => navigate("/setting")}>
+          <AiOutlineSetting />
+          <div>Setting</div>
+        </StyledMenu>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <StyledMenu onClick={() => dispatch(logout())}>
+          <AiOutlineLogout />
+          <div>Logout</div>
+        </StyledMenu>
+      ),
+    },
+  ];
   return (
     <StyledHeader>
-      <div>Welcome to React Localization</div>
-      <div className="change_language">
-        <div className="globe_icon">
-          <FontAwesomeIcon icon={faGlobe} />
+      <div>School Management</div>
+      <div className="header-left-content">
+        <div>
+          <Badge size="small" count={99}>
+            <MdNotifications
+              style={{ fontSize: "22px", marginTop: "4px", cursor: "pointer" }}
+            />
+          </Badge>
         </div>
         <div>
-          <Select
-            placeholder="Select language"
-            value={language}
-            onChange={changeMyLanguage}
+          <Dropdown
+            menu={{
+              items,
+            }}
+            placement="bottomLeft"
+            arrow
           >
-            <Option value="en">English</Option>
-            <Option value="fn">French</Option>
-          </Select>
+            <div className="user-dropdown">
+              <Avatar
+                src="https://images.statusfacebook.com/profile_pictures/stylish-boys/boys-profile-pics-456.jpg"
+                icon={<UserOutlined />}
+                style={{ verticalAlign: "middle" }}
+                size={28}
+              />
+
+              <div>{user.firstName + " " + user.lastName}</div>
+
+              <DownOutlined />
+            </div>
+          </Dropdown>
         </div>
       </div>
     </StyledHeader>
@@ -45,30 +86,56 @@ const Header = ({ myLanguage }) => {
 };
 
 export default connect((state) => ({
-  myLanguage: state.config.language,
+  user: state.auth.user,
 }))(Header);
 const StyledHeader = styled.div`
-  height: 44px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 
-  border-radius: 24px;
+  border-radius: 0 0 0 23px;
   background: ${({ theme }) => theme.color.main};
   color: ${({ theme }) => theme.color.second};
 
-  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
-    background: none;
-    border: none;
+  .header-left-content {
+    margin-left: auto;
+    margin-right: 14px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    .ant-badge {
+      color: #fff;
+    }
   }
 
-  .change_language {
-    position: absolute;
-    right: 14px;
+  .user-dropdown {
+    color: #fff;
+    /* background: #fff; */
     display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 3px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 500;
+    .ant-avatar {
+      background: ${({ theme }) => theme.color.main};
+    }
+
+    &:hover {
+      color: #778899;
+      background-color: #fff;
+      transition: all 0.5s ease-out;
+    }
   }
-  .globe_icon {
-    font-size: 20px;
-  }
+`;
+
+const StyledMenu = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 18px;
 `;

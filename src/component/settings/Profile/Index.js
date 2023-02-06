@@ -6,8 +6,8 @@ const ProfileDetail = () => {
   return (
     <StyledMainContainer>
       <ProfileComponent />
-      <hr />
-      <ThemeCustomization />
+      {/* <hr />
+      <ThemeCustomization /> */}
     </StyledMainContainer>
   );
 };

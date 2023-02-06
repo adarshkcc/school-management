@@ -1,22 +1,89 @@
-import { faSignOut, faSpider, faUser } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcons } from "../../../common/FontAwesomeIcons";
+import { GiTeacher } from "react-icons/gi";
+import { FcReading } from "react-icons/fc";
+import { RiFileListLine } from "react-icons/ri";
+import {
+  SiLibrarything,
+  SiAsciidoctor,
+  SiAcademia,
+  SiMicrosoftacademic,
+} from "react-icons/si";
+import { FaUsers } from "react-icons/fa";
+import { BsFillCalendarEventFill } from "react-icons/bs";
 
-export const MenuItems = [
+import { MdSubject, MdMenuBook } from "react-icons/md";
+
+export const sidebarMenuItems = [
   {
-    key: "/profile",
-    icon: FontAwesomeIcons(faUser),
-    label: "Profile",
+    key: "users",
+    title: "Users",
+    icon: <FaUsers />,
+
+    items: [
+      {
+        key: 1,
+        content: "Teacher",
+        icon: <GiTeacher />,
+
+        path: "/",
+      },
+      {
+        key: 2,
+        content: "Student",
+        icon: <FcReading />,
+        path: "/student-list",
+      },
+      {
+        key: 3,
+        content: "Librarian",
+        icon: <SiLibrarything />,
+        path: "/b",
+      },
+      {
+        key: 4,
+        content: "Accountant",
+        icon: <SiAsciidoctor />,
+        path: "/c",
+      },
+    ],
   },
-  {
-    key: "/userDetailList",
-    icon: FontAwesomeIcons(faSpider),
 
-    label: "Student List",
-  },
   {
-    key: "logout",
-    icon: FontAwesomeIcons(faSignOut),
+    key: "ACADEMICS",
+    title: "Academic",
+    icon: <SiMicrosoftacademic />,
 
-    label: "Logout",
+    items: [
+      {
+        key: 1,
+        content: "Attendance",
+        icon: <SiAcademia />,
+
+        path: "/d",
+      },
+      {
+        key: 2,
+        content: "Subject",
+        icon: <MdSubject />,
+        path: "/e",
+      },
+      {
+        key: 3,
+        content: "Syllabus",
+        icon: <MdMenuBook />,
+        path: "/f",
+      },
+      {
+        key: 4,
+        content: "Progress report",
+        icon: <RiFileListLine />,
+        path: "/g",
+      },
+      {
+        key: 5,
+        content: "Event calender",
+        icon: <BsFillCalendarEventFill />,
+        path: "/g",
+      },
+    ],
   },
 ];

@@ -20,7 +20,7 @@ let initialState = {
     lime: "#15D500",
     blueDark: "#4169E1",
     brown: "#535353",
-    lightBlack: "#535353",
+    lightBlack: "#6d747c",
     border: "#9B9B9B",
     background: "#f0f0f0",
     purple: "#A3B6ED",
@@ -48,6 +48,15 @@ let initialState = {
     status: "#707070",
     warning: "#7E0730",
     buttonGrey: "#7E84A3",
+    table: {
+      th: {
+        background: "#f9f9fb",
+        color: "#7e84a5",
+      },
+      td: {
+        color: "#7e84a5",
+      },
+    },
   },
   borderRadius: "9px",
   browser: {

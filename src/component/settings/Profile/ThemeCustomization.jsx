@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { CHANGE_THEME } from "../../../action/api/action-types";
 import { colorsConstants } from "../../../common/GlobleStyle/colorConstant";
 
-const ThemeCustomization = () => {
+const ThemeCustomization = ({ colorIndex }) => {
   const { t } = useTranslation("mains");
   const dispatch = useDispatch();
   return (
@@ -14,22 +14,33 @@ const ThemeCustomization = () => {
         <div className="main_div">
           {colorsConstants.map((color, index) => (
             <div
-              className="color_div"
-              style={{ background: color.main }}
-              onClick={() =>
-                dispatch({
-                  type: CHANGE_THEME,
-                  payload: index,
-                })
-              }
-            />
+              style={{
+                padding: "10px",
+                borderRadius: "50%",
+                border:
+                  colorIndex === index ? `1px dashed ${color.main}` : "none",
+              }}
+            >
+              <div
+                className="color_div"
+                style={{ background: color.main }}
+                onClick={() =>
+                  dispatch({
+                    type: CHANGE_THEME,
+                    payload: index,
+                  })
+                }
+              />
+            </div>
           ))}
         </div>
       </StyledTheme>
     </>
   );
 };
-export default ThemeCustomization;
+export default connect((state) => ({
+  colorIndex: state.theme.colorIndex,
+}))(ThemeCustomization);
 const StyledTheme = styled.div`
   .main_div {
     display: flex;
